@@ -22,7 +22,6 @@ object JsonUtils {
             null
         }
     }
-
     // Function to parse contacts from JSON string
     fun parseContactsFromJson(jsonString: String?): List<Contact> {
         return if (!jsonString.isNullOrEmpty()) {

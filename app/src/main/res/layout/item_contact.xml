@@ -66,5 +66,4 @@ app:cardElevation="4dp">
         android:src="@drawable/ic_location" />
      -->
 </LinearLayout>
-
 </androidx.cardview.widget.CardView>

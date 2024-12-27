@@ -25,7 +25,6 @@ class ContactAdapter(
             .inflate(R.layout.item_contact, parent, false)
         return ContactViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         // Bind the contact data to the views
         val contact = contactList[position]

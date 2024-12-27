@@ -23,7 +23,6 @@ class ContactActivity : AppCompatActivity() {
 
         binding = ActivityContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // Set up the Toolbar as the ActionBar
         val toolbar = binding.root.findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
