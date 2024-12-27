@@ -9,6 +9,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kailink.databinding.ActivityContactBinding
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kailink.model.Contact
+import com.example.kailink.adapter.ContactAdapter
+import com.example.kailink.utils.JsonUtils
 
 class ContactActivity : AppCompatActivity() {
 
@@ -24,8 +28,19 @@ class ContactActivity : AppCompatActivity() {
         val toolbar = binding.root.findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        // Load contacts from JSON in the raw directory
+        val jsonString = JsonUtils.loadJSONFromRaw(this, R.raw.contacts)
+        val contactList: List<Contact> = JsonUtils.parseContactsFromJson(jsonString)
+
+        // Set up RecyclerView
+        val recyclerView = binding.contactRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = ContactAdapter(contactList)
+
+
         val navView: BottomNavigationView = binding.navView
 
+        /*
         val navController = findNavController(R.id.nav_host_fragment_activity_contact)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -36,5 +51,7 @@ class ContactActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+         */
     }
 }
