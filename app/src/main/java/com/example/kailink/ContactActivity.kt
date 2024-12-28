@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kailink.model.Contact
 import com.example.kailink.adapter.ContactAdapter
 import com.example.kailink.utils.JsonUtils
+import androidx.appcompat.widget.SearchView
+import android.view.Menu
 
 class ContactActivity : AppCompatActivity() {
 
@@ -53,5 +55,27 @@ class ContactActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        val searchItem = menu?.findItem(R.id.action_search)
+        val searchView = searchItem?.actionView as SearchView
+
+        searchView.queryHint = "Search contacts"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Handle search submission
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // Filter the RecyclerView items dynamically
+                (binding.contactRecyclerView.adapter as ContactAdapter).filter.filter(newText)
+                return true
+            }
+        })
+        return true
     }
 }

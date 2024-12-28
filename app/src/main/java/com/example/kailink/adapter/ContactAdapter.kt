@@ -3,14 +3,17 @@ package com.example.kailink.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kailink.R
 import com.example.kailink.model.Contact
+import android.widget.Filter
 
 class ContactAdapter(
     private val contactList: List<Contact>
-) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
+) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>(), Filterable {
+    private var filteredContactList = contactList.toMutableList()
 
     // ViewHolder class to hold the views for each item
     class ContactViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,7 +30,7 @@ class ContactAdapter(
     }
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         // Bind the contact data to the views
-        val contact = contactList[position]
+        val contact = filteredContactList[position]
         holder.nameTextView.text = contact.name
         holder.numberTextView.text = contact.phoneNumber
         holder.addressTextView.text = contact.address
@@ -35,6 +38,31 @@ class ContactAdapter(
 
     override fun getItemCount(): Int {
         // Return the total number of items in the list
-        return contactList.size
+        return filteredContactList.size
+    }
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val query = constraint?.toString()?.lowercase() ?: ""
+                val filteredList = if (query.isEmpty()) {
+                    contactList
+                } else {
+                    contactList.filter {
+                        it.name.lowercase().contains(query) ||
+                                it.phoneNumber.contains(query) ||
+                                it.address.lowercase().contains(query)
+                    }
+                }
+                val results = FilterResults()
+                results.values = filteredList
+                return results
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filteredContactList = results?.values as MutableList<Contact>
+                notifyDataSetChanged()
+            }
+        }
     }
 }
