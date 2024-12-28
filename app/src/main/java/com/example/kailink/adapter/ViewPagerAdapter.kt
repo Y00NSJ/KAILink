@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.kailink.ui.contacts.ContactsFragment
-import com.example.kailink.ui.dashboard.GalleryFragment
+import com.example.kailink.ui.gallery.GalleryFragment
 import com.example.kailink.ui.home.HomeFragment
 import com.example.kailink.ui.notifications.NotificationsFragment
 
