@@ -1,0 +1,436 @@
+[
+  {
+    "id": 1,
+    "building_image": "b_e1",
+    "building_no": "E1",
+    "building_name": "정문",
+    "building_alias": "ㅎㅇㅎㅇ"
+  },
+  {
+    "id": 2,
+    "building_image": "b_e2",
+    "building_no": "E2",
+    "building_name": "산업경영학동",
+    "building_alias": ""
+  },
+  {
+    "id": 3,
+    "building_image": "b_e3",
+    "building_no": "E3",
+    "building_name": "정보전자공학동",
+    "building_alias": ""
+  },
+  {
+    "id": 4,
+    "building_image": "b_e4",
+    "building_no": "E4",
+    "building_name": "KI빌딩",
+    "building_alias": ""
+  },
+  {
+    "id": 5,
+    "building_image": "b_e5",
+    "building_no": "E5",
+    "building_name": "교직원회관",
+    "building_alias": ""
+  },
+  {
+    "id": 6,
+    "building_image": "b_e6",
+    "building_no": "E6",
+    "building_name": "자연과학동",
+    "building_alias": ""
+  },
+  {
+    "id": 7,
+    "building_image": "b_e7",
+    "building_no": "E7",
+    "building_name": "의과학연구센터",
+    "building_alias": ""
+  },
+  {
+    "id": 8,
+    "building_image": "b_e8",
+    "building_no": "E8",
+    "building_name": "세종관",
+    "building_alias": ""
+  },
+  {
+    "id": 9,
+    "building_image": "b_e9",
+    "building_no": "E9",
+    "building_name": "학술문화관",
+    "building_alias": ""
+  },
+  {
+    "id": 10,
+    "building_image": "b_e10",
+    "building_no": "E10",
+    "building_name": "중앙창고",
+    "building_alias": ""
+  },
+  {
+    "id": 11,
+    "building_image": "b_e11",
+    "building_no": "E11",
+    "building_name": "창의학습관",
+    "building_alias": ""
+  },
+  {
+    "id": 12,
+    "building_image": "b_e12",
+    "building_no": "E12",
+    "building_name": "중앙기계실",
+    "building_alias": ""
+  },
+  {
+    "id": 13,
+    "building_image": "b_e13",
+    "building_no": "E13",
+    "building_name": "인공위성연구센터",
+    "building_alias": ""
+  },
+  {
+    "id": 14,
+    "building_image": "b_e14",
+    "building_no": "E14",
+    "building_name": "본관",
+    "building_alias": ""
+  },
+  {
+    "id": 15,
+    "building_image": "b_e15",
+    "building_no": "E15",
+    "building_name": "대강당",
+    "building_alias": ""
+  },
+  {
+    "id": 16,
+    "building_image": "b_e16",
+    "building_no": "E16",
+    "building_name": "정문술빌딩",
+    "building_alias": ""
+  },
+  {
+    "id": 17,
+    "building_image": "b_e17",
+    "building_no": "E17",
+    "building_name": "운동장",
+    "building_alias": ""
+  },
+  {
+    "id": 18,
+    "building_image": "b_e18",
+    "building_no": "E18",
+    "building_name": "대전질환모델동물센터",
+    "building_alias": ""
+  },
+  {
+    "id": 19,
+    "building_image": "b_e19",
+    "building_no": "E19",
+    "building_name": "나노종합기술원",
+    "building_alias": ""
+  },
+  {
+    "id": 20,
+    "building_image": "b_e20",
+    "building_no": "E20",
+    "building_name": "계룡관",
+    "building_alias": ""
+  },
+  {
+    "id": 21,
+    "building_image": "b_e21",
+    "building_no": "E21",
+    "building_name": "카이스트 클리닉",
+    "building_alias": ""
+  },
+  {
+    "id": 23,
+    "building_image": "b_w1",
+    "building_no": "W1",
+    "building_name": "응용과학동",
+    "building_alias": ""
+  },
+  {
+    "id": 24,
+    "building_image": "b_w2",
+    "building_no": "W2",
+    "building_name": "학생회관",
+    "building_alias": ""
+  },
+  {
+    "id": 25,
+    "building_image": "b_w3",
+    "building_no": "W3",
+    "building_name": "갈릴레이관",
+    "building_alias": ""
+  },
+  {
+    "id": 27,
+    "building_image": "b_w5",
+    "building_no": "W5",
+    "building_name": "",
+    "building_alias": ""
+  },
+  {
+    "id": 28,
+    "building_image": "b_w6",
+    "building_no": "W6",
+    "building_name": "미르관, 나래관",
+    "building_alias": ""
+  },
+  {
+    "id": 29,
+    "building_image": "b_w7",
+    "building_no": "W7",
+    "building_name": "나눔관",
+    "building_alias": ""
+  },
+  {
+    "id": 30,
+    "building_image": "b_w8",
+    "building_no": "W8",
+    "building_name": "교육지원동",
+    "building_alias": ""
+  },
+  {
+    "id": 31,
+    "building_image": "b_w9",
+    "building_no": "W9",
+    "building_name": "노천극장",
+    "building_alias": ""
+  },
+  {
+    "id": 32,
+    "building_image": "b_w10",
+    "building_no": "W10",
+    "building_name": "풍동실험실",
+    "building_alias": ""
+  },
+  {
+    "id": 33,
+    "building_image": "b_w11",
+    "building_no": "W11",
+    "building_name": "외국인교수 아파트",
+    "building_alias": ""
+  },
+  {
+    "id": 34,
+    "building_image": "b_w12",
+    "building_no": "W12",
+    "building_name": "서측기계실",
+    "building_alias": ""
+  },
+  {
+    "id": 35,
+    "building_image": "b_w13",
+    "building_no": "W13",
+    "building_name": "메타융합관",
+    "building_alias": ""
+  },
+  {
+    "id": 38,
+    "building_image": "b_w16",
+    "building_no": "W16",
+    "building_name": "지오센트리퓨지 실험동",
+    "building_alias": ""
+  },
+  {
+    "id": 39,
+    "building_image": "b_n0",
+    "building_no": "N0",
+    "building_name": "동문",
+    "building_alias": ""
+  },
+  {
+    "id": 40,
+    "building_image": "b_n1",
+    "building_no": "N1",
+    "building_name": "김병호ㆍ김삼열 IT융합 빌딩",
+    "building_alias": ""
+  },
+  {
+    "id": 41,
+    "building_image": "b_n2",
+    "building_no": "N2",
+    "building_name": "행정분관",
+    "building_alias": ""
+  },
+  {
+    "id": 42,
+    "building_image": "b_n3",
+    "building_no": "N3",
+    "building_name": "스포츠 컴플렉스",
+    "building_alias": ""
+  },
+  {
+    "id": 43,
+    "building_image": "b_n4",
+    "building_no": "N4",
+    "building_name": "디지털인문사회과학부동",
+    "building_alias": ""
+  },
+  {
+    "id": 44,
+    "building_image": "b_n5",
+    "building_no": "N5",
+    "building_name": "융합연구동",
+    "building_alias": ""
+  },
+  {
+    "id": 45,
+    "building_image": "b_n6",
+    "building_no": "N6",
+    "building_name": "교수회관",
+    "building_alias": ""
+  },
+  {
+    "id": 46,
+    "building_image": "b_n7",
+    "building_no": "N7",
+    "building_name": "기계공학동",
+    "building_alias": ""
+  },
+  {
+    "id": 48,
+    "building_image": "b_n9",
+    "building_no": "N9",
+    "building_name": "실습동",
+    "building_alias": ""
+  },
+  {
+    "id": 49,
+    "building_image": "b_n10",
+    "building_no": "N10",
+    "building_name": "교양분관",
+    "building_alias": ""
+  },
+  {
+    "id": 50,
+    "building_image": "b_n11",
+    "building_no": "N11",
+    "building_name": "학생식당",
+    "building_alias": ""
+  },
+  {
+    "id": 51,
+    "building_image": "b_n12",
+    "building_no": "N12",
+    "building_name": "학생회관-2",
+    "building_alias": ""
+  },
+  {
+    "id": 52,
+    "building_image": "b_n13",
+    "building_no": "N13",
+    "building_name": "태울관",
+    "building_alias": ""
+  },
+  {
+    "id": 53,
+    "building_image": "b_n14",
+    "building_no": "N14",
+    "building_name": "사랑관",
+    "building_alias": ""
+  },
+  {
+    "id": 54,
+    "building_image": "b_n15",
+    "building_no": "N15",
+    "building_name": "교직원 숙소",
+    "building_alias": ""
+  },
+  {
+    "id": 55,
+    "building_image": "b_n16",
+    "building_no": "N16",
+    "building_name": "소망관",
+    "building_alias": ""
+  },
+  {
+    "id": 56,
+    "building_image": "b_n17",
+    "building_no": "N17",
+    "building_name": "성실관",
+    "building_alias": ""
+  },
+  {
+    "id": 57,
+    "building_image": "b_n18",
+    "building_no": "N18",
+    "building_name": "진리관",
+    "building_alias": ""
+  },
+  {
+    "id": 58,
+    "building_image": "b_n19",
+    "building_no": "N19",
+    "building_name": "아름관",
+    "building_alias": ""
+  },
+  {
+    "id": 59,
+    "building_image": "b_n20",
+    "building_no": "N20",
+    "building_name": "신뢰관",
+    "building_alias": ""
+  },
+  {
+    "id": 60,
+    "building_image": "b_n21",
+    "building_no": "N21",
+    "building_name": "지혜관",
+    "building_alias": ""
+  },
+  {
+    "id": 61,
+    "building_image": "b_n22",
+    "building_no": "N22",
+    "building_name": "동문창업관",
+    "building_alias": ""
+  },
+  {
+    "id": 62,
+    "building_image": "b_n23",
+    "building_no": "N23",
+    "building_name": "fMRI센터",
+    "building_alias": ""
+  },
+  {
+    "id": 63,
+    "building_image": "b_n24",
+    "building_no": "N24",
+    "building_name": "LG이노베이션홀",
+    "building_alias": ""
+  },
+  {
+    "id": 64,
+    "building_image": "b_n25",
+    "building_no": "N25",
+    "building_name": "산업디자인학과동",
+    "building_alias": ""
+  },
+  {
+    "id": 65,
+    "building_image": "b_n26",
+    "building_no": "N26",
+    "building_name": "고성능집적시스템연구센터",
+    "building_alias": ""
+  },
+  {
+    "id": 66,
+    "building_image": "b_n27",
+    "building_no": "N27",
+    "building_name": "유레카관",
+    "building_alias": ""
+  },
+  {
+    "id": 67,
+    "building_image": "b_n28",
+    "building_no": "N28",
+    "building_name": "에너지환경연구센터",
+    "building_alias": ""
+  }
+]
