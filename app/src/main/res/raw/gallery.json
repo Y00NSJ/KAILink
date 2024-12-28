@@ -18,7 +18,7 @@
     "building_image": "b_e3",
     "building_no": "E3",
     "building_name": "정보전자공학동",
-    "building_alias": ""
+    "building_alias": "전자동"
   },
   {
     "id": 4,
@@ -32,14 +32,14 @@
     "building_image": "b_e5",
     "building_no": "E5",
     "building_name": "교직원회관",
-    "building_alias": ""
+    "building_alias": "동측"
   },
   {
     "id": 6,
     "building_image": "b_e6",
     "building_no": "E6",
     "building_name": "자연과학동",
-    "building_alias": ""
+    "building_alias": "자과동"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "building_image": "b_e9",
     "building_no": "E9",
     "building_name": "학술문화관",
-    "building_alias": ""
+    "building_alias": "도서관"
   },
   {
     "id": 10,
@@ -74,7 +74,7 @@
     "building_image": "b_e11",
     "building_no": "E11",
     "building_name": "창의학습관",
-    "building_alias": ""
+    "building_alias": "창학"
   },
   {
     "id": 12,
@@ -109,7 +109,7 @@
     "building_image": "b_e16",
     "building_no": "E16",
     "building_name": "정문술빌딩",
-    "building_alias": ""
+    "building_alias": "바뇌과"
   },
   {
     "id": 17,
@@ -130,7 +130,7 @@
     "building_image": "b_e19",
     "building_no": "E19",
     "building_name": "나노종합기술원",
-    "building_alias": ""
+    "building_alias": "나노팹"
   },
   {
     "id": 20,
@@ -144,7 +144,7 @@
     "building_image": "b_e21",
     "building_no": "E21",
     "building_name": "카이스트 클리닉",
-    "building_alias": ""
+    "building_alias": "파팔라도"
   },
   {
     "id": 23,
@@ -158,7 +158,7 @@
     "building_image": "b_w2",
     "building_no": "W2",
     "building_name": "학생회관",
-    "building_alias": ""
+    "building_alias": "서측식당서측체육관"
   },
   {
     "id": 25,
@@ -193,7 +193,7 @@
     "building_image": "b_w8",
     "building_no": "W8",
     "building_name": "교육지원동",
-    "building_alias": ""
+    "building_alias": "떱팔"
   },
   {
     "id": 31,
@@ -249,7 +249,7 @@
     "building_image": "b_n1",
     "building_no": "N1",
     "building_name": "김병호ㆍ김삼열 IT융합 빌딩",
-    "building_alias": ""
+    "building_alias": "몰입캠프"
   },
   {
     "id": 41,
@@ -263,14 +263,14 @@
     "building_image": "b_n3",
     "building_no": "N3",
     "building_name": "스포츠 컴플렉스",
-    "building_alias": ""
+    "building_alias": "스컴"
   },
   {
     "id": 43,
     "building_image": "b_n4",
     "building_no": "N4",
     "building_name": "디지털인문사회과학부동",
-    "building_alias": ""
+    "building_alias": "인사동"
   },
   {
     "id": 44,
@@ -305,14 +305,14 @@
     "building_image": "b_n10",
     "building_no": "N10",
     "building_name": "교양분관",
-    "building_alias": ""
+    "building_alias": "교분"
   },
   {
     "id": 50,
     "building_image": "b_n11",
     "building_no": "N11",
     "building_name": "학생식당",
-    "building_alias": ""
+    "building_alias": "카이마루"
   },
   {
     "id": 51,
@@ -326,7 +326,7 @@
     "building_image": "b_n13",
     "building_no": "N13",
     "building_name": "태울관",
-    "building_alias": ""
+    "building_alias": "제순식당"
   },
   {
     "id": 53,

@@ -71,7 +71,7 @@ class ContactsFragment : Fragment() {
             val phoneNumber = clickedContact.phoneNumber ?: ""
 
             // 2) Show your dialog
-            ContactDialogFragment.newInstance(phoneNumber)
+            ContactsDialogFragment.newInstance(phoneNumber)
                 .show(parentFragmentManager, "ContactDialog")
         }
         binding.contactRecyclerView.apply {

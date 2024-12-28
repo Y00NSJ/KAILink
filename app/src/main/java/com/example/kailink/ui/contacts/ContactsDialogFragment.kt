@@ -8,10 +8,15 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.example.kailink.R
 
-class ContactDialogFragment : DialogFragment() {
+
+class ContactsDialogFragment : DialogFragment() {
+    private var listener: OnPlaceButtonClickListener? = null
+
+    interface OnPlaceButtonClickListener {
+        fun onPlaceButtonClicked()
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Inflate the custom layout for this dialog
@@ -35,17 +40,38 @@ class ContactDialogFragment : DialogFragment() {
             }
         }
 
+        val placeButton = view.findViewById<Button>(R.id.placeButton)
+
+        placeButton.setOnClickListener{
+            listener?.onPlaceButtonClicked() // Notify the Activity
+            dismiss() // Close the dialog
+        }
+
         // Build the AlertDialog using the inflated view
         return AlertDialog.Builder(requireContext())
             .setView(view)
             .setPositiveButton("Close") { _, _ -> }
             .create()
     }
+    override fun onAttach(context: android.content.Context) {
+        super.onAttach(context)
+        if (context is OnPlaceButtonClickListener) {
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement OnPlaceButtonClickListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
 
     companion object {
         // If you need to pass arguments, define newInstance(...) accordingly
-        fun newInstance(phoneNumber: String): ContactDialogFragment {
-            val fragment = ContactDialogFragment()
+        fun newInstance(phoneNumber: String): ContactsDialogFragment {
+            val fragment = ContactsDialogFragment()
             val bundle = Bundle()
             bundle.putString("phone_key", phoneNumber)
             fragment.arguments = bundle
