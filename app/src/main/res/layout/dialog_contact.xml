@@ -14,7 +14,7 @@
 
         android:background="?attr/selectableItemBackground"
         android:text="📞"
-        android:textSize="24sp"
+        android:textSize="32sp"
         />
     <Button
         android:id="@+id/placeButton"
@@ -24,7 +24,17 @@
 
         android:background="?attr/selectableItemBackground"
         android:text="🗺️"
-        android:textSize="24sp"
+        android:textSize="32sp"
+        />
+    <Button
+        android:id="@+id/bookmarkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Bookmark"
+
+        android:background="?attr/selectableItemBackground"
+        android:text="⭐️"
+        android:textSize="32sp"
         />
 
 </LinearLayout>

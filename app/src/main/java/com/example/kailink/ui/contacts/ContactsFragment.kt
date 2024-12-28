@@ -41,31 +41,30 @@ class ContactsFragment : Fragment() {
         // Load contacts from JSON in the raw directory
         val jsonString = JsonUtils.loadJSONFromRaw(requireContext(), R.raw.contacts)
         val contactList: List<Contact> = JsonUtils.parseContactsFromJson(jsonString)
-/*
-        // Set up RecyclerView
-        val recyclerView = binding.contactRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = ContactAdapter(contactList)
 
-        // Set up SearchView to filter the list
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                // Optional: Handle search submission if needed
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                val adapter = binding.contactRecyclerView.adapter as? ContactAdapter
-                adapter?.filter?.filter(newText) // Dynamically filter the adapter
-                return true
-            }
-        })
-        */
         setupRecyclerView(contactList)
         setupSearchView()
 
         return root
     }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        // Adjust padding for the activity's Toolbar
+//        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+//
+////        toolbar?.post {
+////            val toolbarHeight = toolbar.height
+////            val searchViewHeight = binding.searchView.height
+////            // Apply padding to account for the Toolbar
+////            binding.root.setPadding(
+////                binding.root.paddingLeft,
+////                toolbarHeight,
+////                binding.root.paddingRight,
+////                binding.root.paddingBottom
+////            )
+////        }
+//    }
     private fun setupRecyclerView(contactList: List<Contact>) {
         contactAdapter = ContactAdapter(contactList) { clickedContact ->
             // 1) Extract or already have phoneNumber from the clickedContact
