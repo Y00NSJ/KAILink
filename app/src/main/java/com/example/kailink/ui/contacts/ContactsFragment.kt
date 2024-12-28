@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -66,7 +67,14 @@ class ContactsFragment : Fragment() {
         return root
     }
     private fun setupRecyclerView(contactList: List<Contact>) {
-        contactAdapter = ContactAdapter(contactList)
+        contactAdapter = ContactAdapter(contactList) { clickedContact ->
+            // 1) Extract or already have phoneNumber from the clickedContact
+            val phoneNumber = clickedContact.phoneNumber ?: ""
+
+            // 2) Show your dialog
+            ContactDialogFragment.newInstance(phoneNumber)
+                .show(parentFragmentManager, "ContactDialog")
+        }
         binding.contactRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = contactAdapter
@@ -85,6 +93,14 @@ class ContactsFragment : Fragment() {
                 return true
             }
         })
+    }
+    private fun showContactDialog(contact: Contact) {
+        // Simple AlertDialog or optional DialogFragment
+        AlertDialog.Builder(requireContext())
+            .setTitle(contact.name)
+            .setMessage("Phone: ${contact.phoneNumber}\nAddress: ${contact.address}")
+            .setPositiveButton("OK", null)
+            .show()
     }
 
     override fun onDestroyView() {
