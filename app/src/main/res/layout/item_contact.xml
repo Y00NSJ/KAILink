@@ -58,6 +58,16 @@ android:focusable="true">
             android:layout_marginTop="4dp"
             android:textColor="#757575" />
 
+        <TextView
+            android:id="@+id/contact_addressAlias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AddressAlias"
+            android:layout_marginTop="0dp"
+            android:textSize="0.1dp"
+            android:textColor="#FFFFFF" />
+
+
     </LinearLayout>
 
     <!--
