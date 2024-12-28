@@ -10,43 +10,57 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kailink.R
 import com.example.kailink.adapter.ContactAdapter
-import com.example.kailink.adapter.DashboardItem
 import com.example.kailink.adapter.GalleryAdapter
+import com.example.kailink.databinding.FragmentContactsBinding
 import com.example.kailink.databinding.FragmentGalleryBinding
 import com.example.kailink.model.Contact
 import com.example.kailink.model.Gallery
 import com.example.kailink.utils.JsonUtils
 
 class GalleryFragment : Fragment() {
-
     private var _binding: FragmentGalleryBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var galleryAdapter: GalleryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_gallery, container, false)
-
+        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val recyclerView = view.findViewById<RecyclerView>(R.id.gallery_recycler_view)
-        recyclerView.layoutManager = GridLayoutManager(context, 2) // 2열 그리드
-
         val jsonString = JsonUtils.loadJSONFromRaw(requireContext(), R.raw.gallery)
         val galleryList: List<Gallery> = JsonUtils.parseGalleryFromJson(jsonString)
 
+        setupRecyclerView(galleryList)
+        setupSearchView()
+    }
 
+    private fun setupRecyclerView(galleryList: List<Gallery>) {
+        galleryAdapter = GalleryAdapter(galleryList)
+        binding.galleryRecyclerView.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2) // 2열 그리드
+            adapter = galleryAdapter
+        }
+    }
 
+    private fun setupSearchView() {
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Optional: Handle search submission if needed
+                return false
+            }
 
-        recyclerView.adapter = GalleryAdapter(galleryList)
+            override fun onQueryTextChange(newText: String?): Boolean {
+                galleryAdapter.filter.filter(newText) // Dynamically filter the adapter
+                return true
+            }
+        })
     }
 
     override fun onDestroyView() {
