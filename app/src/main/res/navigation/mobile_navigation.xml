@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.kailink.ui.dashboard.GalleryFragment"
+        android:name="com.example.kailink.ui.gallery.GalleryFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_gallery" />
 
