@@ -1,4 +1,4 @@
-package com.example.kailink.ui.dashboard
+package com.example.kailink.ui.gallery
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
