@@ -30,7 +30,7 @@ class ContactAdapter(
     }
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         // Bind the contact data to the views
-        val contact = contactList[position]
+        val contact = filteredContactList[position]
         holder.nameTextView.text = contact.name
         holder.numberTextView.text = contact.phoneNumber
         holder.addressTextView.text = contact.address
