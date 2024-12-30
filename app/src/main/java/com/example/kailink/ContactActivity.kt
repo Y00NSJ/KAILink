@@ -50,6 +50,7 @@ class ContactActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
 //    override fun onPlaceButtonClicked() {
 //        // Simulate navigation to the Gallery tab
 //        val navView: BottomNavigationView = findViewById(R.id.nav_view)
