@@ -1,9 +1,12 @@
 package com.example.kailink.adapter
 
 import android.app.Dialog
+import android.content.ClipData
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +15,7 @@ import android.widget.Filterable
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kailink.R
 import com.example.kailink.model.Gallery
@@ -69,10 +73,17 @@ class GalleryAdapter(private val items: List<Gallery>) :
             dialog.dismiss()
         }
 
-        // 공유 버튼 (기능 구현 필요)
-//        dialog.findViewById<Button>(R.id.share_button).setOnClickListener {
-//            // TODO : 공유 기능 구현
-//        }
+        dialog.findViewById<ImageButton>(R.id.share_button).setOnClickListener {
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "${item.galleryName} (${item.galleryNum})\n${item.galleryAlias}\nKAILink에서 자세한 정보를 확인하세요!\nhttps://play.google.com/store/apps/details?id=kailink")
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TITLE, "KAIST 건물 정보")
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            dialog.context.startActivity(shareIntent)
+        }
+
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCancelable(false)
         dialog.show()
