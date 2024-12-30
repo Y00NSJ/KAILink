@@ -60,8 +60,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
-
         return root
     }
 
@@ -80,7 +78,9 @@ class HomeFragment : Fragment() {
         }
     }
     private fun setupRecyclerView() {
-        bookmarkAdapter = BookmarkAdapter(emptyList())
+        bookmarkAdapter = BookmarkAdapter(emptyList()) { bookmark ->
+            deleteBookmark(bookmark) // Pass logic to delete bookmark
+        }
         binding.bookmarkRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.bookmarkRecyclerView.adapter = bookmarkAdapter
     }
@@ -94,6 +94,19 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    private fun deleteBookmark(bookmark: BookmarkContact) {
+        val db = BookmarkContactDatabase.getInstance(requireContext())
+        lifecycleScope.launch(Dispatchers.IO) {
+            db!!.bookmarkContactDao().delete(bookmark)
+            val updatedBookmarks = db.bookmarkContactDao().getAll()
+            withContext(Dispatchers.Main) {
+                bookmarkAdapter.updateData(updatedBookmarks)
+                Toast.makeText(requireContext(), "Bookmark deleted!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
