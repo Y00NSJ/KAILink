@@ -20,7 +20,7 @@ class GalleryAdapter(private val items: List<Gallery>) :
         val imageView: ImageView = view.findViewById(R.id.imageView_card)
         val galleryNumTextView: TextView = view.findViewById(R.id.gallery_num)
         val galleryNameTextView: TextView = view.findViewById(R.id.gallery_name)
-        val galleryAliasTextView: TextView = view.findViewById(R.id.gallery_alias)
+    //    val galleryAliasTextView: TextView = view.findViewById(R.id.gallery_alias)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
@@ -38,7 +38,7 @@ class GalleryAdapter(private val items: List<Gallery>) :
 
         holder.galleryNumTextView.text = item.galleryNum
         holder.galleryNameTextView.text = item.galleryName
-        holder.galleryAliasTextView.text = item.galleryAlias
+    //    holder.galleryAliasTextView.text = item.galleryAlias
     }
 
     override fun getItemCount(): Int = filteredGalleryList.size

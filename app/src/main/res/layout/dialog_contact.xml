@@ -3,38 +3,74 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="24dp">
+    <!-- Vertical Texts -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/contactNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/callButton"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/contactPhoneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/contactAddressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+    <!-- Horizontal Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="Call Contact"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        >
+        <Button
+            android:id="@+id/callButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Call Contact"
 
-        android:background="?attr/selectableItemBackground"
-        android:text="📞"
-        android:textSize="32sp"
-        />
-    <Button
-        android:id="@+id/placeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Map_Place"
+            android:background="?attr/selectableItemBackground"
+            android:text="📞"
+            android:textSize="32sp"
+            />
+        <Button
+            android:id="@+id/placeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Map_Place"
 
-        android:background="?attr/selectableItemBackground"
-        android:text="🗺️"
-        android:textSize="32sp"
-        />
-    <Button
-        android:id="@+id/bookmarkButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Bookmark"
+            android:background="?attr/selectableItemBackground"
+            android:text="🗺️"
+            android:textSize="32sp"
+            />
+        <Button
+            android:id="@+id/bookmarkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Bookmark"
 
-        android:background="?attr/selectableItemBackground"
-        android:text="⭐️"
-        android:textSize="32sp"
-        />
+            android:background="?attr/selectableItemBackground"
+            android:text="⭐️"
+            android:textSize="32sp"
+            />
+    </LinearLayout>
 
 </LinearLayout>

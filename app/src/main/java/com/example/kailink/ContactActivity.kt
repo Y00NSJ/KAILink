@@ -20,15 +20,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.example.kailink.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import android.app.Dialog
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
-import com.example.kailink.ui.contacts.ContactsDialogFragment
 
-class ContactActivity : AppCompatActivity(), ContactsDialogFragment.OnPlaceButtonClickListener {
+class ContactActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityContactBinding
 
@@ -43,7 +36,7 @@ class ContactActivity : AppCompatActivity(), ContactsDialogFragment.OnPlaceButto
 
 
         val navView: BottomNavigationView = binding.navView
-     //   val navController = findNavController(R.id.nav_host_fragment_activity_contact)
+    //   val navController = findNavController(R.id.nav_host_fragment_activity_contact)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_contact) as NavHostFragment
         val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
@@ -57,10 +50,10 @@ class ContactActivity : AppCompatActivity(), ContactsDialogFragment.OnPlaceButto
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-    override fun onPlaceButtonClicked() {
-        // Simulate navigation to the Gallery tab
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        navView.selectedItemId = R.id.navigation_dashboard // Replace with the actual ID for the Gallery tab
-    }
+//    override fun onPlaceButtonClicked() {
+//        // Simulate navigation to the Gallery tab
+//        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+//        navView.selectedItemId = R.id.navigation_dashboard // Replace with the actual ID for the Gallery tab
+//    }
 
 }

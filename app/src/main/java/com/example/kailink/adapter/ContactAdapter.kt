@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kailink.R
 import com.example.kailink.model.Contact
 import android.widget.Filter
+import android.widget.ImageView
 
 class ContactAdapter(
     private val contactList: List<Contact>,
@@ -31,14 +32,12 @@ class ContactAdapter(
         val nameTextView: TextView = itemView.findViewById(R.id.contact_name)
         val numberTextView: TextView = itemView.findViewById(R.id.contact_number)
         val addressTextView: TextView = itemView.findViewById(R.id.contact_address)
-        val addressAliasTextView: TextView = itemView.findViewById(R.id.contact_addressAlias)
 
         fun bind(contact: Contact) {
             // Bind the contact data
             nameTextView.text = contact.name
             numberTextView.text = contact.phoneNumber
             addressTextView.text = contact.address
-            addressAliasTextView.text = contact.addressAlias
 
             // Entire row clickable
             itemView.setOnClickListener {
@@ -57,10 +56,7 @@ class ContactAdapter(
         // Bind the contact data to the views
         val contact = filteredContactList[position]
         holder.bind(contact)
-        holder.nameTextView.text = contact.name
-        holder.numberTextView.text = contact.phoneNumber
-        holder.addressTextView.text = contact.address
-        holder.addressAliasTextView.text = contact.addressAlias
+
     }
 
     override fun getItemCount(): Int {
