@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@android:color/transparent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/dialog_background"
+        android:padding="26dp">
     <!-- Vertical Texts -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintTop_toTopOf="parent">
         <TextView
             android:id="@+id/contactNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact Name"
             android:textSize="18sp"
+            android:layout_marginTop="8dp"
             android:textStyle="bold" />
 
         <TextView
@@ -30,47 +39,67 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp" />
         </LinearLayout>
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Horizontal Buttons -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="8dp"
-        >
-        <Button
-            android:id="@+id/callButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Call Contact"
 
-            android:background="?attr/selectableItemBackground"
-            android:text="📞"
-            android:textSize="32sp"
-            />
-        <Button
-            android:id="@+id/placeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Map_Place"
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:contentDescription="close_description"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
 
-            android:background="?attr/selectableItemBackground"
-            android:text="🗺️"
-            android:textSize="32sp"
-            />
-        <Button
-            android:id="@+id/bookmarkButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Bookmark"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_close"
+        android:background="@drawable/round_button"
+        android:layout_gravity="center"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
+        app:layout_constraintEnd_toStartOf="@id/callButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialog" />
+    <ImageButton
+        android:id="@+id/callButton"
+        android:contentDescription="call_description"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_call"
+        android:background="@drawable/round_button"
+        app:backgroundTint="#5ebfed"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
+        app:layout_constraintEnd_toStartOf="@id/placeButton"
+        app:layout_constraintStart_toEndOf="@id/closeButton"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialog" />
+    <ImageButton
+        android:id="@+id/placeButton"
+        android:contentDescription="place_description"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_navi"
+        android:background="@drawable/round_button"
+        app:backgroundTint="#2088ca"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
+        app:layout_constraintEnd_toStartOf="@id/bookmarkButton"
+        app:layout_constraintStart_toEndOf="@id/callButton"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialog" />
+    <ImageButton
+        android:id="@+id/bookmarkButton"
+        android:contentDescription="bookmark_description"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_bookmark"
+        android:background="@drawable/round_button"
+        app:backgroundTint="#005caa"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/placeButton"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialog"/>
 
-            android:background="?attr/selectableItemBackground"
-            android:text="⭐️"
-            android:textSize="32sp"
-            />
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

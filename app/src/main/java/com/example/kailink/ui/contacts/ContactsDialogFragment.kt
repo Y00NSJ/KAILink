@@ -13,6 +13,9 @@ import com.example.kailink.R
 import com.example.kailink.data.BookmarkContact
 import com.example.kailink.data.BookmarkContactDatabase
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.widget.ImageButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,8 +26,15 @@ import com.example.kailink.ui.home.HomeFragment
 class ContactDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = Dialog(requireContext())
+
         // Inflate the custom layout for this dialog
         val view = requireActivity().layoutInflater.inflate(R.layout.dialog_contact, null)
+        dialog.setContentView(view)
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+
         val name = arguments?.getString("name_key") ?: "Unknown Name"
         val phoneNumber = arguments?.getString("phone_key") ?: "Unknown Phone Number"
         val address = arguments?.getString("address_key") ?: "Unknown Address"
@@ -37,8 +47,9 @@ class ContactDialogFragment : DialogFragment() {
         phoneTextView.text = phoneNumber
         addressTextView.text = address
 
-        val callButton = view.findViewById<Button>(R.id.callButton)
-        val bookmarkButton = view.findViewById<Button>(R.id.bookmarkButton)
+        val callButton = view.findViewById<ImageButton>(R.id.callButton)
+        val bookmarkButton = view.findViewById<ImageButton>(R.id.bookmarkButton)
+        val closeButton = view.findViewById<ImageButton>(R.id.closeButton)
 
         callButton.setOnClickListener {
             // If phoneNumber is null or blank, handle gracefully
@@ -79,7 +90,9 @@ class ContactDialogFragment : DialogFragment() {
             }
         }
 
-
+        closeButton.setOnClickListener {
+            dialog.dismiss()
+        }
 
 //        val placeButton = view.findViewById<Button>(R.id.placeButton)
 //
@@ -88,25 +101,9 @@ class ContactDialogFragment : DialogFragment() {
 //            dismiss() // Close the dialog
 //        }
 
-        // Build the AlertDialog using the inflated view
-        return AlertDialog.Builder(requireContext())
-            .setView(view)
-            .setPositiveButton("Close") { _, _ -> }
-            .create()
+        return dialog
     }
-//    override fun onAttach(context: android.content.Context) {
-//        super.onAttach(context)
-//        if (context is OnPlaceButtonClickListener) {
-//            listener = context
-//        } else {
-//            throw RuntimeException("$context must implement OnPlaceButtonClickListener")
-//        }
-//    }
-//
-//    override fun onDetach() {
-//        super.onDetach()
-//        listener = null
-//    }
+
 
 
     companion object {
