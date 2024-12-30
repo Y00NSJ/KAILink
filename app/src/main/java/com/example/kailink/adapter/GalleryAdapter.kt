@@ -1,10 +1,15 @@
 package com.example.kailink.adapter
 
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,24 +17,24 @@ import com.example.kailink.R
 import com.example.kailink.model.Gallery
 
 class GalleryAdapter(private val items: List<Gallery>) :
-    RecyclerView.Adapter<GalleryAdapter.DashboardViewHolder>(), Filterable {
+    RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>(), Filterable {
 
     private var filteredGalleryList = items.toMutableList()
 
-    class DashboardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class GalleryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imageView_card)
         val galleryNumTextView: TextView = view.findViewById(R.id.gallery_num)
         val galleryNameTextView: TextView = view.findViewById(R.id.gallery_name)
         val galleryAliasTextView: TextView = view.findViewById(R.id.gallery_alias)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_gallery_card, parent, false)
-        return DashboardViewHolder(view)
+        return GalleryViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
         val item = filteredGalleryList[position]
 
         // setImageResource는 int를 받으므로 string인 이미지명을 int로 변환
@@ -39,6 +44,38 @@ class GalleryAdapter(private val items: List<Gallery>) :
         holder.galleryNumTextView.text = item.galleryNum
         holder.galleryNameTextView.text = item.galleryName
         holder.galleryAliasTextView.text = item.galleryAlias
+
+        holder.itemView.setOnClickListener {
+           showCustomDialog(holder.itemView.context, item)
+        }
+    }
+
+    private fun showCustomDialog(context: Context, item: Gallery) {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.dialog_gallery)
+
+        val imageView = dialog.findViewById<ImageView>(R.id.image_dialog)
+        val galleryNumTextView = dialog.findViewById<TextView>(R.id.bnum_dialog)
+        val galleryNameTextView = dialog.findViewById<TextView>(R.id.name_dialog)
+        val galleryAliasTextView = dialog.findViewById<TextView>(R.id.alias_dialog)
+
+        val resourceId = context.resources.getIdentifier(item.image, "drawable", context.packageName)
+        imageView.setImageResource(resourceId)
+        galleryNumTextView.text = item.galleryNum
+        galleryNameTextView.text = item.galleryName
+        galleryAliasTextView.text = item.galleryAlias
+
+        dialog.findViewById<ImageButton>(R.id.close_button).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        // 공유 버튼 (기능 구현 필요)
+//        dialog.findViewById<Button>(R.id.share_button).setOnClickListener {
+//            // TODO : 공유 기능 구현
+//        }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+        dialog.show()
     }
 
     override fun getItemCount(): Int = filteredGalleryList.size
