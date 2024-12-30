@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -51,6 +52,11 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     // Add Gson for JSON parsing
     implementation("com.google.code.gson:gson:2.10.1")
+    // Room Database dependencies
+    implementation("androidx.room:room-runtime:2.5.0")
+    implementation("androidx.room:room-ktx:2.5.0")
+    kapt("androidx.room:room-compiler:2.5.0") // Annotation processor
+    implementation ("androidx.room:room-testing:2.5.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

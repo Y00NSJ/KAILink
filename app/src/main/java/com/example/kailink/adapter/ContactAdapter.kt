@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kailink.R
 import com.example.kailink.model.Contact
 import android.widget.Filter
+import android.widget.ImageView
 
 class ContactAdapter(
     private val contactList: List<Contact>,
@@ -55,9 +56,7 @@ class ContactAdapter(
         // Bind the contact data to the views
         val contact = filteredContactList[position]
         holder.bind(contact)
-        holder.nameTextView.text = contact.name
-        holder.numberTextView.text = contact.phoneNumber
-        holder.addressTextView.text = contact.address
+
     }
 
     override fun getItemCount(): Int {

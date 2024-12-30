@@ -10,6 +10,7 @@ import com.example.kailink.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.example.kailink.adapter.ViewPagerAdapter
+import com.example.kailink.ui.contacts.ContactDialogFragment
 
 class ContainerFragment : Fragment() {
 

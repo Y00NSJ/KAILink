@@ -4,19 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kailink.R
 import com.example.kailink.adapter.ContactAdapter
 import com.example.kailink.databinding.FragmentContactsBinding
 import com.example.kailink.model.Contact
 import com.example.kailink.utils.JsonUtils
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+
 
 class ContactsFragment : Fragment() {
 
@@ -47,33 +46,20 @@ class ContactsFragment : Fragment() {
 
         return root
     }
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        // Adjust padding for the activity's Toolbar
-//        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
-//
-////        toolbar?.post {
-////            val toolbarHeight = toolbar.height
-////            val searchViewHeight = binding.searchView.height
-////            // Apply padding to account for the Toolbar
-////            binding.root.setPadding(
-////                binding.root.paddingLeft,
-////                toolbarHeight,
-////                binding.root.paddingRight,
-////                binding.root.paddingBottom
-////            )
-////        }
-//    }
-    private fun setupRecyclerView(contactList: List<Contact>) {
-        contactAdapter = ContactAdapter(contactList) { clickedContact ->
-            // 1) Extract or already have phoneNumber from the clickedContact
-            val phoneNumber = clickedContact.phoneNumber ?: ""
 
-            // 2) Show your dialog
-            ContactDialogFragment.newInstance(phoneNumber)
-                .show(parentFragmentManager, "ContactDialog")
-        }
+    private fun setupRecyclerView(contactList: List<Contact>) {
+        contactAdapter = ContactAdapter(
+            contactList = contactList,
+            onItemClick = { clickedContact ->
+                val name = clickedContact.name ?: ""
+                val phoneNumber = clickedContact.phoneNumber ?: ""
+                val address = clickedContact.address ?: ""
+                // 2) Show your dialog
+                ContactDialogFragment.newInstance(name, phoneNumber, address)
+                    .show(parentFragmentManager, "ContactDialog")
+            },
+        )
+
         binding.contactRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = contactAdapter
@@ -102,9 +88,41 @@ class ContactsFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(contact.name)
             .setMessage("Phone: ${contact.phoneNumber}\nAddress: ${contact.address}")
-            .setPositiveButton("OK", null)
+            .setPositiveButton("Close", null)
             .show()
     }
+//    private fun toggleBookmark(contact: Contact) {
+//        lifecycleScope.launch {
+//            try {
+//                if (contact.isBookmarked) {
+//                    // Remove from database
+//                    contact.isBookmarked = false
+//                    bookmarkedDao.removeBookmark(
+//                        Bookmarked(
+//                            contactId = contact.id,
+//                            name = contact.name,
+//                            phoneNumber = contact.phoneNumber,
+//                            address = contact.address
+//                        )
+//                    )
+//                } else {
+//                    // Add to database
+//                    contact.isBookmarked = true
+//                    bookmarkedDao.addBookmark(
+//                        Bookmarked(
+//                            contactId = contact.id,
+//                            name = contact.name,
+//                            phoneNumber = contact.phoneNumber,
+//                            address = contact.address
+//                        )
+//                    )
+//                }
+//                contactAdapter.notifyDataSetChanged() // Update UI
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//        }
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
