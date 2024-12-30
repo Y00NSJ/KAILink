@@ -54,20 +54,23 @@ class ContactDialogFragment : DialogFragment() {
         }
 
         bookmarkButton.setOnClickListener {
-            var BookmarkedContact = BookmarkContact(name , phoneNumber, address)
+    //        var BookmarkedContact = BookmarkContact(name , phoneNumber, address)
             val db = BookmarkContactDatabase.getInstance(requireContext())
             CoroutineScope(Dispatchers.IO).launch {
-                val isBookmarked = db!!.bookmarkContactDao().isBookmarked(name, phoneNumber, address) > 0
-                if (isBookmarked) {
+                val existingContact = db!!.bookmarkContactDao()
+                    .getContactByDetails(name, phoneNumber, address)
+    //            val isBookmarked = db!!.bookmarkContactDao().isBookmarked(name, phoneNumber, address) > 0
+                if (existingContact!=null) {
                     // If bookmarked, delete it
-                    db!!.bookmarkContactDao().delete(BookmarkedContact)
+                    db.bookmarkContactDao().delete(existingContact)
                     withContext(Dispatchers.Main) {
                         Toast.makeText(requireContext(), "Bookmark removed!", Toast.LENGTH_SHORT).show()
                         (parentFragmentManager.findFragmentByTag("HomeFragment") as? HomeFragment)?.loadBookmarks()
                     }
                 } else {
                     // If not bookmarked, insert it
-                    db!!.bookmarkContactDao().insert(BookmarkedContact)
+                    val newContact = BookmarkContact(name = name, phoneNumber = phoneNumber, address = address)
+                    db.bookmarkContactDao().insert(newContact)
                     withContext(Dispatchers.Main) {
                         Toast.makeText(requireContext(), "Contact bookmarked!", Toast.LENGTH_SHORT).show()
                         (parentFragmentManager.findFragmentByTag("HomeFragment") as? HomeFragment)?.loadBookmarks()

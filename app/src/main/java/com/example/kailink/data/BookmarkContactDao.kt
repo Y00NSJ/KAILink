@@ -13,6 +13,9 @@ interface BookmarkContactDao {
     @Query("DELETE FROM BookmarkContact")
     fun clearAllBookmarks()
 
+    @Query("SELECT * FROM BookmarkContact WHERE name = :name AND phoneNumber = :phoneNumber AND address = :address LIMIT 1")
+    fun getContactByDetails(name: String, phoneNumber: String, address: String): BookmarkContact?
+
     @Insert
     fun insert(bookmarkContact: BookmarkContact)
 
