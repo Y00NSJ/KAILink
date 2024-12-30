@@ -81,6 +81,10 @@ class ContactsFragment : Fragment() {
     }
 
     private fun setupSearchView() {
+        binding.searchView.setOnClickListener {
+            binding.searchView.isIconified = false // 항상 확장 상태 유지
+        }
+
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Optional: Handle search submission if needed
