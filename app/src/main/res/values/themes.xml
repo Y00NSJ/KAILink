@@ -3,10 +3,12 @@
     <style name="Base.Theme.KAILink" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowDisablePreview">true</item>
         <item name="colorPrimary">@color/my_light_primary</item>
         <item name="colorPrimaryVariant">@color/my_light_primary_variant</item> <!-- For status bar -->
         <item name="android:statusBarColor">@color/my_light_primary_variant</item> <!-- Explicit status bar color -->
     </style>
+
 
     <style name="Theme.KAILink" parent="Base.Theme.KAILink" />
 </resources>

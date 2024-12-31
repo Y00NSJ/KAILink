@@ -4,15 +4,12 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.kailink.R
 import com.example.kailink.data.BookmarkContact
-import com.example.kailink.data.BookmarkContactDatabase
-import android.content.Context
+import com.example.kailink.data.AppDatabase
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.ImageButton
@@ -66,7 +63,7 @@ class ContactDialogFragment : DialogFragment() {
 
         bookmarkButton.setOnClickListener {
     //        var BookmarkedContact = BookmarkContact(name , phoneNumber, address)
-            val db = BookmarkContactDatabase.getInstance(requireContext())
+            val db = AppDatabase.getInstance(requireContext())
             CoroutineScope(Dispatchers.IO).launch {
                 val existingContact = db!!.bookmarkContactDao()
                     .getContactByDetails(name, phoneNumber, address)

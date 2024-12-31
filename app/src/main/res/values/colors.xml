@@ -8,4 +8,5 @@
     <color name="my_light_primary_variant">#264D8D</color>
     <color name="my_dark_primary">#264D8D</color>
     <color name="my_dark_primary_variant">#264D8D</color>
+    <color name="background">#D4E2ED</color>
 </resources>

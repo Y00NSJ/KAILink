@@ -57,6 +57,9 @@ dependencies {
     implementation("androidx.room:room-ktx:2.5.0")
     kapt("androidx.room:room-compiler:2.5.0") // Annotation processor
     implementation ("androidx.room:room-testing:2.5.1")
+    implementation ("androidx.core:core-splashscreen:1.0.0-beta01")
+    implementation ("com.github.bumptech.glide:glide:4.15.0")
+    kapt ("com.github.bumptech.glide:compiler:4.15.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
