@@ -13,6 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kailink.model.Contact
 import com.example.kailink.adapter.ContactAdapter
 import com.example.kailink.utils.JsonUtils
+import androidx.appcompat.widget.SearchView
+import android.view.Menu
+import androidx.navigation.fragment.NavHostFragment
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.example.kailink.adapter.ViewPagerAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ContactActivity : AppCompatActivity() {
 
@@ -27,20 +34,11 @@ class ContactActivity : AppCompatActivity() {
         val toolbar = binding.root.findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-//        // Load contacts from JSON in the raw directory
-//        val jsonString = JsonUtils.loadJSONFromRaw(this, R.raw.contacts)
-//        val contactList: List<Contact> = JsonUtils.parseContactsFromJson(jsonString)
-//
-//        // Set up RecyclerView
-//        val recyclerView = binding.contactRecyclerView
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.adapter = ContactAdapter(contactList)
-
 
         val navView: BottomNavigationView = binding.navView
-
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_contact)
+    //   val navController = findNavController(R.id.nav_host_fragment_activity_contact)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_contact) as NavHostFragment
+        val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -51,7 +49,12 @@ class ContactActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
     }
+
+//    override fun onPlaceButtonClicked() {
+//        // Simulate navigation to the Gallery tab
+//        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+//        navView.selectedItemId = R.id.navigation_dashboard // Replace with the actual ID for the Gallery tab
+//    }
+
 }
