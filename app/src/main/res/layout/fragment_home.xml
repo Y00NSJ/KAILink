@@ -27,27 +27,34 @@
                 android:contentDescription="Profile Image"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_user_placeholder"
-                android:background="@drawable/circle_mask"
                 />
 
             <Button
                 android:id="@+id/BtnProfile"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle_button"
                 android:text="+"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 />
 
+            <Button
+                android:id="@+id/BtnEditProfile"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_edit"
+
+                android:layout_gravity="bottom"/>
+
+
             <!-- Button Over Image -->
         </FrameLayout>
 
         <!-- Text Information -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="8dp">
 
             <TextView
@@ -57,16 +64,49 @@
                 android:text="User Name"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/BtnEditName"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="20dp"
+                />
+            <Button
+                android:id="@+id/BtnEditName"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_edit"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@id/userName"
+                />
 
-            <TextView
-                android:id="@+id/userEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="user@example.com"
-                android:textSize="14sp"
-                android:textColor="@color/gray" />
-        </LinearLayout>
+
+        </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+        <Button
+            android:id="@+id/BtnEditEmail"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_edit"
+
+
+            />
+        <TextView
+            android:id="@+id/userEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user@example.com"
+            android:textSize="14sp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/gray" />
+
+
+    </FrameLayout>
+
+
 
         <!-- Bookmark Section -->
         <TextView

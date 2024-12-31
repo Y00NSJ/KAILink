@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,8 +49,12 @@ class HomeFragment : Fragment() {
         loadBookmarks()
         loadProfile()
         // Set click listener for the button
-        binding.BtnProfile.setOnClickListener {
+        binding.BtnEditProfile.setOnClickListener {
             openGallery()
+            loadProfile()
+        }
+        binding.BtnProfile.setOnClickListener{
+            deleteProfile()
             loadProfile()
         }
 
@@ -113,6 +118,20 @@ class HomeFragment : Fragment() {
         }
         return file.absolutePath // Return the path to save in the database
     }
+    private fun deleteProfile() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val db = AppDatabase.getInstance(requireContext())
+            val profileDao = db!!.profileDao()
+            var profile: Profile? = profileDao.getProfileById(1)
+            profileDao.updateProfile(profile = Profile(
+                name = profile!!.name,
+                email = profile.email,
+                profileImage = null
+                )
+            )
+
+        }
+    }
 
     private fun loadProfile() {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -121,6 +140,7 @@ class HomeFragment : Fragment() {
 
             // Check if a profile exists
             var profile = profileDao.getProfileById(1)
+            Log.d("DatabaseCheck", "Profiles: $profile")
             if (profile == null) {
                 // Insert a default profile
                 profile = Profile(
