@@ -36,8 +36,8 @@ class ContainerFragment : Fragment() {
             when (position) {
                 0 -> tab.text = "Home"
                 1 -> tab.text = "Contacts"
-                2 -> tab.text = "Dashboard"
-                3 -> tab.text = "Notifications"
+                2 -> tab.text = "Gallery"
+                3 -> tab.text = "Chatbot"
             }
         }.attach()
 
