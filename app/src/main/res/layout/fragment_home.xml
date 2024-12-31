@@ -22,13 +22,13 @@
 
             <ImageView
                 android:id="@+id/profileImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:contentDescription="Profile Image"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_user_placeholder"
                 />
-
+<!--
             <Button
                 android:id="@+id/BtnProfile"
                 android:layout_width="20dp"
@@ -38,7 +38,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 />
-
+-->
             <Button
                 android:id="@+id/BtnEditProfile"
                 android:layout_width="20dp"
@@ -57,19 +57,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
-            <TextView
+            <EditText
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Name"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="4dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/BtnEditName"
                 android:layout_marginBottom="4dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="28dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="@null"
                 />
             <Button
                 android:id="@+id/BtnEditName"
@@ -79,29 +82,19 @@
                 android:layout_gravity="center_vertical"
                 app:layout_constraintStart_toEndOf="@id/userName"
                 />
-
-
-        </FrameLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
-        <Button
-            android:id="@+id/BtnEditEmail"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_edit"
-
-
             />
-        <TextView
-            android:id="@+id/userEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="user@example.com"
-            android:textSize="14sp"
-            android:layout_marginStart="20dp"
-            android:textColor="@color/gray" />
+            <EditText
+                android:id="@+id/userEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="user@example.com"
+                android:textSize="18sp"
+                android:layout_marginStart="90dp"
+                android:textColor="@color/gray"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="@null"
+                />
 
 
     </FrameLayout>

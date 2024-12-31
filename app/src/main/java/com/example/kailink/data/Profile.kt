@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Profile(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val name: String,
-    val email: String,
+    var name: String,
+    var email: String,
     var profileImage: String? // Store image as a file path or Base64 string
 )

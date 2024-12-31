@@ -10,6 +10,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -30,6 +33,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var bookmarkAdapter: BookmarkAdapter
+    private var isEditing = false
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -53,14 +57,15 @@ class HomeFragment : Fragment() {
             openGallery()
             loadProfile()
         }
-        binding.BtnProfile.setOnClickListener{
-            deleteProfile()
-            loadProfile()
-        }
-
 
         binding.clearButton.setOnClickListener {
             clearBookmarks()
+        }
+
+        val editUserName = view?.findViewById<EditText>(R.id.userName)
+        binding.BtnEditName.setOnClickListener {
+            showEditProfileDialog()
+            loadProfile()
         }
         return root
     }
@@ -102,7 +107,7 @@ class HomeFragment : Fragment() {
                 }
 
                 // Update the UI
-                binding.profileImage.setImageURI(imageUri)
+            //    binding.profileImage.setImageURI(imageUri)
             }
         }
     }
@@ -118,20 +123,20 @@ class HomeFragment : Fragment() {
         }
         return file.absolutePath // Return the path to save in the database
     }
-    private fun deleteProfile() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val db = AppDatabase.getInstance(requireContext())
-            val profileDao = db!!.profileDao()
-            var profile: Profile? = profileDao.getProfileById(1)
-            profileDao.updateProfile(profile = Profile(
-                name = profile!!.name,
-                email = profile.email,
-                profileImage = null
-                )
-            )
-
-        }
-    }
+//    private fun deleteProfile() {
+//        lifecycleScope.launch(Dispatchers.IO) {
+//            val db = AppDatabase.getInstance(requireContext())
+//            val profileDao = db!!.profileDao()
+//            var profile: Profile? = profileDao.getProfileById(1)
+//            profileDao.updateProfile(profile = Profile(
+//                name = profile!!.name,
+//                email = profile.email,
+//                profileImage = null
+//                )
+//            )
+//
+//        }
+//    }
 
     private fun loadProfile() {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -196,6 +201,75 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "Bookmark deleted!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    private fun saveUserNameToDatabase(newUserName: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val db = AppDatabase.getInstance(requireContext())
+            val profileDao = db!!.profileDao()
+            val profile = profileDao.getProfileById(1)
+
+            profile?.let {
+                it.name = newUserName // Update the name field
+                profileDao.updateProfile(it)
+            }
+
+        }
+    }
+    private fun showEditProfileDialog() {
+        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_edit_profile, null)
+        val dialogBuilder = android.app.AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setTitle("Edit Profile")
+
+        val dialog = dialogBuilder.create()
+
+        val editName = dialogView.findViewById<EditText>(R.id.editProfileName)
+        val editEmail = dialogView.findViewById<EditText>(R.id.editProfileEmail)
+        val saveButton = dialogView.findViewById<Button>(R.id.saveProfileButton)
+
+        // Pre-fill existing profile data
+        lifecycleScope.launch(Dispatchers.IO) {
+            val db = AppDatabase.getInstance(requireContext())
+            val profileDao = db!!.profileDao()
+            val profile = profileDao.getProfileById(1)
+
+            withContext(Dispatchers.Main) {
+                profile?.let {
+                    editName.setText(it.name)
+                    editEmail.setText(it.email)
+                }
+            }
+        }
+
+        // Save changes when the "Save" button is clicked
+        saveButton.setOnClickListener {
+            var newName = editName.text.toString().trim()
+            var newEmail = editEmail.text.toString().trim()
+
+            if (newName.isNotBlank() && newEmail.isNotBlank()) {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val db = AppDatabase.getInstance(requireContext())
+                    val profileDao = db!!.profileDao()
+                    val profile = profileDao.getProfileById(1)
+
+                    profile?.let {
+                        it.name = newName
+                        it.email = newEmail
+                        profileDao.updateProfile(it)
+                    }
+
+                    withContext(Dispatchers.Main) {
+                        loadProfile() // Refresh the profile in the UI
+                        dialog.dismiss()
+                        Toast.makeText(requireContext(), "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(requireContext(), "Both fields must be filled!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        dialog.show()
     }
 
     override fun onDestroyView() {
