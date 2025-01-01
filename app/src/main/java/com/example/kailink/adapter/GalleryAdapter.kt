@@ -17,8 +17,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.kailink.R
 import com.example.kailink.model.Gallery
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 class GalleryAdapter(private val items: List<Gallery>) :
     RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>(), Filterable {
@@ -43,7 +50,11 @@ class GalleryAdapter(private val items: List<Gallery>) :
 
         // setImageResource는 int를 받으므로 string인 이미지명을 int로 변환
         val resourceId = holder.itemView.context.resources.getIdentifier(item.image, "drawable", holder.itemView.context.packageName)
-        holder.imageView.setImageResource(resourceId)
+        Glide.with(holder.itemView.context)
+            .load(resourceId) // Drawable 리소스 ID를 로드
+            .placeholder(R.drawable.ic_loading) // 로드 중에 보여줄 기본 이미지
+            .error(R.drawable.ic_error) // 로드 실패 시 보여줄 이미지
+            .into(holder.imageView) // ImageView에 설정
 
         holder.galleryNumTextView.text = item.galleryNum
         holder.galleryNameTextView.text = item.galleryName
@@ -62,6 +73,17 @@ class GalleryAdapter(private val items: List<Gallery>) :
         val galleryNumTextView = dialog.findViewById<TextView>(R.id.bnum_dialog)
         val galleryNameTextView = dialog.findViewById<TextView>(R.id.name_dialog)
         val galleryAliasTextView = dialog.findViewById<TextView>(R.id.alias_dialog)
+        val mapView = dialog.findViewById<MapView>(R.id.mapView)
+
+        mapView.onCreate(null)
+        mapView.getMapAsync(object : OnMapReadyCallback {
+            override fun onMapReady(googleMap: GoogleMap) {
+                // Add a marker and move the camera
+                val position = LatLng(item.latitude, item.longitude)
+                googleMap.addMarker(MarkerOptions().position(position).title(item.galleryName))
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15f))
+            }
+        })
 
         val resourceId = context.resources.getIdentifier(item.image, "drawable", context.packageName)
         imageView.setImageResource(resourceId)
@@ -87,6 +109,13 @@ class GalleryAdapter(private val items: List<Gallery>) :
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCancelable(false)
         dialog.show()
+
+        mapView.onResume()
+        dialog.setOnDismissListener {
+            mapView.onPause()
+            mapView.onStop()
+            mapView.onDestroy()
+        }
     }
 
     override fun getItemCount(): Int = filteredGalleryList.size
