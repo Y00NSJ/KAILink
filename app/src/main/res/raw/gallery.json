@@ -1,0 +1,551 @@
+[
+  {
+    "id": 1,
+    "building_image": "b_e1",
+    "building_no": "E1",
+    "building_name": "정문",
+    "building_alias": "",
+    "latitude": 36.3659375,
+    "longitude": 127.3636875
+  },
+  {
+    "id": 2,
+    "building_image": "b_e2",
+    "building_no": "E2",
+    "building_name": "산업경영학동",
+    "building_alias": "",
+    "latitude": 36.36736115,
+    "longitude": 127.36440007295178
+  },
+  {
+    "id": 3,
+    "building_image": "b_e3",
+    "building_no": "E3",
+    "building_name": "정보전자공학동",
+    "building_alias": "전자동",
+    "latitude": 36.3683156,
+    "longitude": 127.36492206608528
+  },
+  {
+    "id": 4,
+    "building_image": "b_e4",
+    "building_no": "E4",
+    "building_name": "KI빌딩",
+    "building_alias": "",
+    "latitude": 36.36824175,
+    "longitude": 127.36383943991842
+  },
+  {
+    "id": 5,
+    "building_image": "b_e5",
+    "building_no": "E5",
+    "building_name": "교직원회관",
+    "building_alias": "동측",
+    "latitude": 36.36927305,
+    "longitude": 127.36362015516741
+  },
+  {
+    "id": 6,
+    "building_image": "b_e6",
+    "building_no": "E6",
+    "building_name": "자연과학동",
+    "building_alias": "자과동",
+    "latitude": 36.369940650000004,
+    "longitude": 127.36460154668575
+  },
+  {
+    "id": 7,
+    "building_image": "b_e7",
+    "building_no": "E7",
+    "building_name": "의과학연구센터",
+    "building_alias": "",
+    "latitude": 36.37036065,
+    "longitude": 127.36549906899374
+  },
+  {
+    "id": 8,
+    "building_image": "b_e8",
+    "building_no": "E8",
+    "building_name": "세종관",
+    "building_alias": "",
+    "latitude": 37.5500062,
+    "longitude": 127.0745185717496
+  },
+  {
+    "id": 9,
+    "building_image": "b_e9",
+    "building_no": "E9",
+    "building_name": "학술문화관",
+    "building_alias": "도서관",
+    "latitude": 36.3693901,
+    "longitude": 127.36272907186213
+  },
+  {
+    "id": 10,
+    "building_image": "b_e10",
+    "building_no": "E10",
+    "building_name": "중앙창고",
+    "building_alias": "",
+    "latitude": 36.37136365,
+    "longitude": 127.36540705
+  },
+  {
+    "id": 11,
+    "building_image": "b_e11",
+    "building_no": "E11",
+    "building_name": "창의학습관",
+    "building_alias": "창학",
+    "latitude": 36.3702782,
+    "longitude": 127.36248705294993
+  },
+  {
+    "id": 12,
+    "building_image": "b_e12",
+    "building_no": "E12",
+    "building_name": "중앙기계실",
+    "building_alias": "",
+    "latitude": 36.371290650000006,
+    "longitude": 127.36450925481304
+  },
+  {
+    "id": 13,
+    "building_image": "b_e13",
+    "building_no": "E13",
+    "building_name": "인공위성연구센터",
+    "building_alias": "",
+    "latitude": 36.37254905,
+    "longitude": 127.36626467443182
+  },
+  {
+    "id": 14,
+    "building_image": "b_e14",
+    "building_no": "E14",
+    "building_name": "본관",
+    "building_alias": "",
+    "latitude": 37.50161335,
+    "longitude": 126.92212309406524
+  },
+  {
+    "id": 15,
+    "building_image": "b_e15",
+    "building_no": "E15",
+    "building_name": "대강당",
+    "building_alias": "",
+    "latitude": 37.5613568,
+    "longitude": 126.94498351548036
+  },
+  {
+    "id": 16,
+    "building_image": "b_e16",
+    "building_no": "E16",
+    "building_name": "정문술빌딩",
+    "building_alias": "바뇌과",
+    "latitude": 36.3715462,
+    "longitude": 127.36183742872655
+  },
+  {
+    "id": 17,
+    "building_image": "b_e17",
+    "building_no": "E17",
+    "building_name": "운동장",
+    "building_alias": "",
+    "latitude": 36.9669227,
+    "longitude": 127.9414578050706
+  },
+  {
+    "id": 18,
+    "building_image": "b_e18",
+    "building_no": "E18",
+    "building_name": "대전질환모델동물센터",
+    "building_alias": "",
+    "latitude": 36.3682991,
+    "longitude": 127.36812592172083
+  },
+  {
+    "id": 19,
+    "building_image": "b_e19",
+    "building_no": "E19",
+    "building_name": "나노종합기술원",
+    "building_alias": "나노팹",
+    "latitude": 36.3682589,
+    "longitude": 127.36681933541738
+  },
+  {
+    "id": 20,
+    "building_image": "b_e20",
+    "building_no": "E20",
+    "building_name": "계룡관",
+    "building_alias": "",
+    "latitude": 36.372565699999996,
+    "longitude": 127.36706001191067
+  },
+  {
+    "id": 21,
+    "building_image": "b_e21",
+    "building_no": "E21",
+    "building_name": "카이스트 클리닉",
+    "building_alias": "파팔라도",
+    "latitude": 36.3694375,
+    "longitude": 127.3696875
+  },
+  {
+    "id": 23,
+    "building_image": "b_w1",
+    "building_no": "W1",
+    "building_name": "응용과학동",
+    "building_alias": "",
+    "latitude": 36.3651875,
+    "longitude": 127.3611875
+  },
+  {
+    "id": 24,
+    "building_image": "b_w2",
+    "building_no": "W2",
+    "building_name": "학생회관",
+    "building_alias": "서측식당서측체육관",
+    "latitude": 37.4971522,
+    "longitude": 126.95698503198773
+  },
+  {
+    "id": 25,
+    "building_image": "b_w3",
+    "building_no": "W3",
+    "building_name": "갈릴레이관",
+    "building_alias": "",
+    "latitude": 36.3674919,
+    "longitude": 127.35802769025847
+  },
+  {
+    "id": 28,
+    "building_image": "b_w6",
+    "building_no": "W6",
+    "building_name": "미르관, 나래관",
+    "building_alias": "",
+    "latitude": 36.3705625,
+    "longitude": 127.3558125
+  },
+  {
+    "id": 29,
+    "building_image": "b_w7",
+    "building_no": "W7",
+    "building_name": "나눔관",
+    "building_alias": "",
+    "latitude": 36.3710674,
+    "longitude": 127.35581042506787
+  },
+  {
+    "id": 30,
+    "building_image": "b_w8",
+    "building_no": "W8",
+    "building_name": "교육지원동",
+    "building_alias": "떱팔",
+    "latitude": 36.3699323,
+    "longitude": 127.36003864717627
+  },
+  {
+    "id": 31,
+    "building_image": "b_w9",
+    "building_no": "W9",
+    "building_name": "노천극장",
+    "building_alias": "",
+    "latitude": 37.5654366,
+    "longitude": 126.93993556723129
+  },
+  {
+    "id": 32,
+    "building_image": "b_w10",
+    "building_no": "W10",
+    "building_name": "풍동실험실",
+    "building_alias": "",
+    "latitude": 36.37143175,
+    "longitude": 127.35688790271658
+  },
+  {
+    "id": 33,
+    "building_image": "b_w11",
+    "building_no": "W11",
+    "building_name": "외국인교수 아파트",
+    "building_alias": "",
+    "latitude": 36.3719375,
+    "longitude": 127.3565625
+  },
+  {
+    "id": 34,
+    "building_image": "b_w12",
+    "building_no": "W12",
+    "building_name": "서측기계실",
+    "building_alias": "",
+    "latitude": 36.368711000000005,
+    "longitude": 127.35717585877208
+  },
+  {
+    "id": 35,
+    "building_image": "b_w13",
+    "building_no": "W13",
+    "building_name": "메타융합관",
+    "building_alias": "",
+    "latitude": 36.3661875,
+    "longitude": 127.3601875
+  },
+  {
+    "id": 38,
+    "building_image": "b_w16",
+    "building_no": "W16",
+    "building_name": "지오센트리퓨지 실험동",
+    "building_alias": "",
+    "latitude": 36.36556245,
+    "longitude": 127.36240355136883
+  },
+  {
+    "id": 39,
+    "building_image": "b_n0",
+    "building_no": "N0",
+    "building_name": "동문",
+    "building_alias": "",
+    "latitude": 35.7346777,
+    "longitude": 126.7348561
+  },
+  {
+    "id": 40,
+    "building_image": "b_n1",
+    "building_no": "N1",
+    "building_name": "김병호ㆍ김삼열 IT융합 빌딩",
+    "building_alias": "몰입캠프",
+    "latitude": 36.37418750000001,
+    "longitude": 127.3658125
+  },
+  {
+    "id": 41,
+    "building_image": "b_n2",
+    "building_no": "N2",
+    "building_name": "행정분관",
+    "building_alias": "",
+    "latitude": 36.3730148,
+    "longitude": 127.36367874844228
+  },
+  {
+    "id": 42,
+    "building_image": "b_n3",
+    "building_no": "N3",
+    "building_name": "스포츠 컴플렉스",
+    "building_alias": "스컴",
+    "latitude": 36.3725075,
+    "longitude": 127.36158517643287
+  },
+  {
+    "id": 43,
+    "building_image": "b_n4",
+    "building_no": "N4",
+    "building_name": "디지털인문사회과학부동",
+    "building_alias": "인사동",
+    "latitude": 36.3731875,
+    "longitude": 127.3626875
+  },
+  {
+    "id": 44,
+    "building_image": "b_n5",
+    "building_no": "N5",
+    "building_name": "융합연구동",
+    "building_alias": "",
+    "latitude": 35.05699635,
+    "longitude": 127.00287227565093
+  },
+  {
+    "id": 45,
+    "building_image": "b_n6",
+    "building_no": "N6",
+    "building_name": "교수회관",
+    "building_alias": "",
+    "latitude": 37.45770335,
+    "longitude": 126.95393274463028
+  },
+  {
+    "id": 46,
+    "building_image": "b_n7",
+    "building_no": "N7",
+    "building_name": "기계공학동",
+    "building_alias": "",
+    "latitude": 36.3724055,
+    "longitude": 127.3587160488234
+  },
+  {
+    "id": 48,
+    "building_image": "b_n9",
+    "building_no": "N9",
+    "building_name": "실습동",
+    "building_alias": "",
+    "latitude": 35.12574725,
+    "longitude": 129.10357328597195
+  },
+  {
+    "id": 49,
+    "building_image": "b_n10",
+    "building_no": "N10",
+    "building_name": "교양분관",
+    "building_alias": "교분",
+    "latitude": 36.3742095,
+    "longitude": 127.36040990000001
+  },
+  {
+    "id": 50,
+    "building_image": "b_n11",
+    "building_no": "N11",
+    "building_name": "학생식당",
+    "building_alias": "카이마루",
+    "latitude": 37.50563595,
+    "longitude": 126.92673682114462
+  },
+  {
+    "id": 51,
+    "building_image": "b_n12",
+    "building_no": "N12",
+    "building_name": "학생회관-2",
+    "building_alias": "",
+    "latitude": 36.37395225,
+    "longitude": 127.3597143571711
+  },
+  {
+    "id": 52,
+    "building_image": "b_n13",
+    "building_no": "N13",
+    "building_name": "태울관",
+    "building_alias": "제순식당",
+    "latitude": 36.3731816,
+    "longitude": 127.35988485781607
+  },
+  {
+    "id": 53,
+    "building_image": "b_n14",
+    "building_no": "N14",
+    "building_name": "사랑관",
+    "building_alias": "",
+    "latitude": 37.50583760000001,
+    "longitude": 126.69321153151655
+  },
+  {
+    "id": 54,
+    "building_image": "b_n15",
+    "building_no": "N15",
+    "building_name": "교직원 숙소",
+    "building_alias": "",
+    "latitude": 35.571923850000005,
+    "longitude": 129.1858987780309
+  },
+  {
+    "id": 55,
+    "building_image": "b_n16",
+    "building_no": "N16",
+    "building_name": "소망관",
+    "building_alias": "",
+    "latitude": 35.8668008,
+    "longitude": 128.5240156549153
+  },
+  {
+    "id": 56,
+    "building_image": "b_n17",
+    "building_no": "N17",
+    "building_name": "성실관",
+    "building_alias": "",
+    "latitude": 37.479483450000004,
+    "longitude": 127.0048874139627
+  },
+  {
+    "id": 57,
+    "building_image": "b_n18",
+    "building_no": "N18",
+    "building_name": "진리관",
+    "building_alias": "",
+    "latitude": 37.49714055,
+    "longitude": 126.95737179118551
+  },
+  {
+    "id": 58,
+    "building_image": "b_n19",
+    "building_no": "N19",
+    "building_name": "아름관",
+    "building_alias": "",
+    "latitude": 37.63005905,
+    "longitude": 127.0809777524025
+  },
+  {
+    "id": 59,
+    "building_image": "b_n20",
+    "building_no": "N20",
+    "building_name": "신뢰관",
+    "building_alias": "",
+    "latitude": 36.3752602,
+    "longitude": 127.35900359984844
+  },
+  {
+    "id": 60,
+    "building_image": "b_n21",
+    "building_no": "N21",
+    "building_name": "지혜관",
+    "building_alias": "",
+    "latitude": 37.4801005,
+    "longitude": 127.00387175050646
+  },
+  {
+    "id": 61,
+    "building_image": "b_n22",
+    "building_no": "N22",
+    "building_name": "동문창업관",
+    "building_alias": "",
+    "latitude": 36.37484675,
+    "longitude": 127.36421444989008
+  },
+  {
+    "id": 62,
+    "building_image": "b_n23",
+    "building_no": "N23",
+    "building_name": "fMRI센터",
+    "building_alias": "",
+    "latitude": 36.3754375,
+    "longitude": 127.3640625
+  },
+  {
+    "id": 63,
+    "building_image": "b_n24",
+    "building_no": "N24",
+    "building_name": "LG이노베이션홀",
+    "building_alias": "",
+    "latitude": 36.37531250000001,
+    "longitude": 127.3634375
+  },
+  {
+    "id": 64,
+    "building_image": "b_n25",
+    "building_no": "N25",
+    "building_name": "산업디자인학과동",
+    "building_alias": "",
+    "latitude": 36.37389145,
+    "longitude": 127.36226248845671
+  },
+  {
+    "id": 65,
+    "building_image": "b_n26",
+    "building_no": "N26",
+    "building_name": "고성능집적시스템연구센터",
+    "building_alias": "",
+    "latitude": 36.37547395,
+    "longitude": 127.36160194944416
+  },
+  {
+    "id": 66,
+    "building_image": "b_n27",
+    "building_no": "N27",
+    "building_name": "유레카관",
+    "building_alias": "",
+    "latitude": 36.3755333,
+    "longitude": 127.36068524999999
+  },
+  {
+    "id": 67,
+    "building_image": "b_n28",
+    "building_no": "N28",
+    "building_name": "에너지환경연구센터",
+    "building_alias": "",
+    "latitude": 36.3754664,
+    "longitude": 127.36255987519957
+  }
+]

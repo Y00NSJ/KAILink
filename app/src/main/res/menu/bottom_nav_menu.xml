@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:elevation="2dp"
+        android:title="마이페이지" />
+
+    <item
+        android:id="@+id/navigation_contacts"
+        android:icon="@drawable/ic_phone_black_24dp"
+        android:elevation="2dp"
+        android:title="연락처" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:elevation="2dp"
+        android:title="갤러리" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/nubjuk"
+        android:elevation="2dp"
+        android:title="넙죽이봇" />
+
+</menu>
