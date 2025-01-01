@@ -111,7 +111,7 @@ class HomeFragment : Fragment() {
                     }
                     withContext(Dispatchers.Main) {
                         loadProfile() // Refresh the profile in the UI
-                        Toast.makeText(requireContext(), "프로필이 업데이트 됐습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "프로필이 업데이트 되었습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -272,11 +272,11 @@ class HomeFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         loadProfile() // Refresh the profile in the UI
                         dialog.dismiss()
-                        Toast.makeText(requireContext(), "프로필이 업데이트 됐습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "프로필이 업데이트 되었습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "유효하지 않은 이름/이메일 입니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "유효하지 않은 이름/이메일입니다.", Toast.LENGTH_SHORT).show()
             }
         }
 

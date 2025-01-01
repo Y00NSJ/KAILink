@@ -80,7 +80,7 @@ class ContactDialogFragment : DialogFragment() {
                     val newContact = BookmarkContact(name = name, phoneNumber = phoneNumber, address = address)
                     db.bookmarkContactDao().insert(newContact)
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(requireContext(), "Contact bookmarked!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "연락처 즐겨찾기 완료", Toast.LENGTH_SHORT).show()
                         (parentFragmentManager.findFragmentByTag("HomeFragment") as? HomeFragment)?.loadBookmarks()
                     }
                 }
