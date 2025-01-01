@@ -73,16 +73,19 @@
                     android:gravity="end"
                     android:src="@drawable/ic_placeholder" />
             </LinearLayout>
-        <ImageView
+
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="40dp"
             android:scaleType="centerCrop"
             android:gravity="end"
-            android:src="@drawable/ic_placeholder" />
+            />
 
-    </LinearLayout>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton

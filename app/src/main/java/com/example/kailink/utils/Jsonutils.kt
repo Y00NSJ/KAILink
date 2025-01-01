@@ -45,7 +45,9 @@ object JsonUtils {
                         image = jsonObject.getString("building_image"),
                         galleryNum = jsonObject.getString("building_no"),
                         galleryName = jsonObject.getString("building_name"),
-                        galleryAlias = jsonObject.getString("building_alias")
+                        galleryAlias = jsonObject.getString("building_alias"),
+                        latitude = jsonObject.getDouble("latitude"),
+                        longitude = jsonObject.getDouble("longitude")
                     )
                     items.add(item)
                 }
