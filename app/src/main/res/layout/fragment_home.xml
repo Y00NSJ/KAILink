@@ -1,4 +1,7 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,56 +22,91 @@
 
             <ImageView
                 android:id="@+id/profileImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/user_placeholder"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:contentDescription="Profile Image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_user_placeholder" />
-
+                android:src="@drawable/ic_user_placeholder"
+                />
+<!--
             <Button
                 android:id="@+id/BtnProfile"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle_button"
                 android:text="+"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 />
+-->
+            <Button
+                android:id="@+id/BtnEditProfile"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_edit"
+
+                android:layout_gravity="bottom"/>
+
 
             <!-- Button Over Image -->
         </FrameLayout>
 
         <!-- Text Information -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="8dp">
 
-            <TextView
+            <EditText
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Name"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginEnd="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/BtnEditName"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="28dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="@null"
+                />
+            <Button
+                android:id="@+id/BtnEditName"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_edit"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@id/userName"
+                />
 
-            <TextView
+            <EditText
                 android:id="@+id/userEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="user@example.com"
-                android:textSize="14sp"
-                android:textColor="@color/gray" />
-        </LinearLayout>
+                android:textSize="18sp"
+                android:layout_marginStart="90dp"
+                android:textColor="@color/gray"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="@null"
+                />
+
+
+    </FrameLayout>
+
+
 
         <!-- Bookmark Section -->
         <TextView
+            android:id="@+id/My_Bookmarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My Bookmarks"
+            android:text="내 즐겨찾기"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -78,6 +116,8 @@
             android:id="@+id/bookmarkRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/My_Bookmarks"
+            app:layout_constraintBottom_toTopOf="@id/clearButton"
             android:scrollbars="vertical" />
 
         <!-- Settings or Logout -->
@@ -85,10 +125,11 @@
             android:id="@+id/clearButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clear Bookmarks"
+            android:text="즐겨찾기 모두 삭제"
             android:textStyle="bold"
-            android:backgroundTint="#264D8D"
-            android:textColor="@color/white"
+            android:backgroundTint="#DDDDDD"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="16dp" />
 
     </LinearLayout>
