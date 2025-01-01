@@ -2,7 +2,10 @@ package com.example.kailink.ui.home
 
 import com.example.kailink.data.Profile
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,6 +16,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -216,16 +220,17 @@ class HomeFragment : Fragment() {
         }
     }
     private fun showEditProfileDialog() {
+
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_edit_profile, null)
         val dialogBuilder = android.app.AlertDialog.Builder(requireContext())
             .setView(dialogView)
-            .setTitle("Edit Profile")
 
         val dialog = dialogBuilder.create()
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val editName = dialogView.findViewById<EditText>(R.id.editProfileName)
         val editEmail = dialogView.findViewById<EditText>(R.id.editProfileEmail)
-        val saveButton = dialogView.findViewById<Button>(R.id.saveProfileButton)
+        val saveButton = dialogView.findViewById<ImageButton>(R.id.saveProfileButton)
 
         // Pre-fill existing profile data
         lifecycleScope.launch(Dispatchers.IO) {
