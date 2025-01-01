@@ -23,7 +23,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.kailink.ui.gallery.GalleryFragment"
         android:elevation="8dp"
-        android:label="Gallery"
+        android:label="갤러리"
         tools:layout="@layout/fragment_gallery"
         />
 
