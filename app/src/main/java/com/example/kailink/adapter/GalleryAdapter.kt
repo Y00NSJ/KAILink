@@ -86,7 +86,11 @@ class GalleryAdapter(private val items: List<Gallery>) :
         })
 
         val resourceId = context.resources.getIdentifier(item.image, "drawable", context.packageName)
-        imageView.setImageResource(resourceId)
+        Glide.with(context)
+            .load(resourceId) // Load drawable resource
+            .placeholder(R.drawable.ic_loading) // 로딩 중 보여줄 기본 이미지
+            .error(R.drawable.ic_error) // 로드 실패 시 보여줄 이미지
+            .into(imageView) // ImageView에 설정
         galleryNumTextView.text = item.galleryNum
         galleryNameTextView.text = item.galleryName
         galleryAliasTextView.text = item.galleryAlias
