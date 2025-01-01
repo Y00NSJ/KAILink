@@ -27,7 +27,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class GalleryAdapter(private val items: List<Gallery>) :
+class GalleryAdapter(private val items: List<Gallery>, private val mapView: MapView) :
     RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>(), Filterable {
 
     private var filteredGalleryList = items.toMutableList()
@@ -73,17 +73,19 @@ class GalleryAdapter(private val items: List<Gallery>) :
         val galleryNumTextView = dialog.findViewById<TextView>(R.id.bnum_dialog)
         val galleryNameTextView = dialog.findViewById<TextView>(R.id.name_dialog)
         val galleryAliasTextView = dialog.findViewById<TextView>(R.id.alias_dialog)
-        val mapView = dialog.findViewById<MapView>(R.id.mapView)
+        val mapContainer = dialog.findViewById<ViewGroup>(R.id.mapView)
 
-        mapView.onCreate(null)
-        mapView.getMapAsync(object : OnMapReadyCallback {
-            override fun onMapReady(googleMap: GoogleMap) {
-                // Add a marker and move the camera
-                val position = LatLng(item.latitude, item.longitude)
-                googleMap.addMarker(MarkerOptions().position(position).title(item.galleryName))
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15f))
-            }
-        })
+        if (mapView.parent != null) {
+            (mapView.parent as ViewGroup).removeView(mapView) // 기존 부모에서 제거
+        }
+        mapContainer.addView(mapView)
+
+        mapView.getMapAsync { googleMap ->
+            val position = LatLng(item.latitude, item.longitude)
+            googleMap.clear()
+            googleMap.addMarker(MarkerOptions().position(position).title(item.galleryName))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15f))
+        }
 
         val resourceId = context.resources.getIdentifier(item.image, "drawable", context.packageName)
         Glide.with(context)

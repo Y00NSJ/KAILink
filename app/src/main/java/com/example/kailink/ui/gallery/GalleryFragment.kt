@@ -16,12 +16,13 @@ import com.example.kailink.databinding.FragmentGalleryBinding
 import com.example.kailink.model.Contact
 import com.example.kailink.model.Gallery
 import com.example.kailink.utils.JsonUtils
+import com.google.android.gms.maps.MapView
 
 class GalleryFragment : Fragment() {
     private var _binding: FragmentGalleryBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var galleryAdapter: GalleryAdapter
+    private lateinit var mapView: MapView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +30,8 @@ class GalleryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        mapView = MapView(requireContext())
+        mapView.onCreate(savedInstanceState)
         return binding.root
     }
 
@@ -42,7 +45,7 @@ class GalleryFragment : Fragment() {
     }
 
     private fun setupRecyclerView(galleryList: List<Gallery>) {
-        galleryAdapter = GalleryAdapter(galleryList)
+        galleryAdapter = GalleryAdapter(galleryList, mapView)
         binding.galleryRecyclerView.apply {
             layoutManager = GridLayoutManager(requireContext(), 2) // 2열 그리드
             adapter = galleryAdapter
@@ -64,6 +67,16 @@ class GalleryFragment : Fragment() {
                 return true
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume() // MapView 재사용
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapView.onPause() // MapView 재사용
     }
 
     override fun onDestroyView() {
