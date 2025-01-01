@@ -57,7 +57,7 @@ class ContactDialogFragment : DialogFragment() {
                 )
                 startActivity(dialIntent)
             } else {
-                Toast.makeText(requireContext(), "No valid phone number.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "유효하지 않은 전화번호입니다.", Toast.LENGTH_SHORT).show()
             }
         }
 

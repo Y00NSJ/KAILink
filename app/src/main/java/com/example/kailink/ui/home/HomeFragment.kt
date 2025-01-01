@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.kailink.R
 import com.example.kailink.data.BookmarkContact
 import com.example.kailink.data.AppDatabase
@@ -59,7 +60,6 @@ class HomeFragment : Fragment() {
         // Set click listener for the button
         binding.BtnEditProfile.setOnClickListener {
             openGallery()
-            loadProfile()
         }
 
         binding.clearButton.setOnClickListener {
@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             db?.bookmarkContactDao()?.clearAllBookmarks()
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), "All bookmarks cleared!", Toast.LENGTH_SHORT).show()
+            //    Toast.makeText(requireContext(), "All bookmarks cleared!", Toast.LENGTH_SHORT).show()
                 loadBookmarks()
             }
         }
@@ -107,11 +107,16 @@ class HomeFragment : Fragment() {
                     profile?.let {
                         it.profileImage = imagePath // Update the image path
                         profileDao.updateProfile(it)
+                        Log.d("Profile check", "Updated")
+                    }
+                    withContext(Dispatchers.Main) {
+                        loadProfile() // Refresh the profile in the UI
+                        Toast.makeText(requireContext(), "프로필이 업데이트 됐습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 // Update the UI
-            //    binding.profileImage.setImageURI(imageUri)
+               // binding.profileImage.setImageURI(imageUri)
             }
         }
     }
@@ -168,6 +173,8 @@ class HomeFragment : Fragment() {
                     Glide.with(this@HomeFragment)
                         .load(File(profile.profileImage)) // Load the saved image path
                         .circleCrop() // Make the image circular
+                        .skipMemoryCache(true)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .into(binding.profileImage) // Target ImageView
                 } else {
                     binding.profileImage.setImageResource(R.drawable.ic_user_placeholder)
@@ -202,7 +209,6 @@ class HomeFragment : Fragment() {
             val updatedBookmarks = db.bookmarkContactDao().getAll()
             withContext(Dispatchers.Main) {
                 bookmarkAdapter.updateData(updatedBookmarks)
-                Toast.makeText(requireContext(), "Bookmark deleted!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -266,11 +272,11 @@ class HomeFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         loadProfile() // Refresh the profile in the UI
                         dialog.dismiss()
-                        Toast.makeText(requireContext(), "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "프로필이 업데이트 됐습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Both fields must be filled!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "유효하지 않은 이름/이메일 입니다.", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -82,7 +82,7 @@
                 android:layout_gravity="center_vertical"
                 app:layout_constraintStart_toEndOf="@id/userName"
                 />
-            />
+
             <EditText
                 android:id="@+id/userEmail"
                 android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
             android:id="@+id/My_Bookmarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My Bookmarks"
+            android:text="내 즐겨찾기"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -125,10 +125,10 @@
             android:id="@+id/clearButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Clear Bookmarks"
+            android:text="즐겨찾기 모두 삭제"
             android:textStyle="bold"
-            android:backgroundTint="#264D8D"
-            android:textColor="@color/white"
+            android:backgroundTint="#DDDDDD"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="16dp" />
 

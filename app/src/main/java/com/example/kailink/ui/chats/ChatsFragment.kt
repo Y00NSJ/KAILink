@@ -55,7 +55,7 @@ class ChatsFragment : Fragment() {
             stackFromEnd = true
         }
 
-        addToChat("안녕하세요!\n저는 KAIST 교내 정보를 안내해드리는 챗봇입니다.\n무엇을 도와드릴까요?", Message.SENT_BY_BOT)
+        addToChat("안녕하세요!\n저는 KAIST 교내 정보를 안내해드리는 넙죽이봇입니다.\n무엇을 도와드릴까요?", Message.SENT_BY_BOT)
 
         sendButton.setOnClickListener {
             val question = messageEditText.text.toString().trim()
