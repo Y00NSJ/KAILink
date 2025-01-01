@@ -34,8 +34,8 @@ class ContainerFragment : Fragment() {
         // Link TabLayout with ViewPager2
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = "Home"
-                1 -> tab.text = "Contacts"
+                0 -> tab.text = "마이페이지"
+                1 -> tab.text = "연락처"
                 2 -> tab.text = "Gallery"
                 3 -> tab.text = "Chatbot"
             }

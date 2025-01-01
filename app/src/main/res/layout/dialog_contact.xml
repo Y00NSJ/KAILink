@@ -72,22 +72,10 @@
         android:background="@drawable/round_button"
         app:backgroundTint="#5ebfed"
         app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
-        app:layout_constraintEnd_toStartOf="@id/placeButton"
+        app:layout_constraintEnd_toStartOf="@id/bookmarkButton"
         app:layout_constraintStart_toEndOf="@id/closeButton"
         app:layout_constraintTop_toBottomOf="@id/layoutDialog" />
-    <ImageButton
-        android:id="@+id/placeButton"
-        android:contentDescription="place_description"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_navi"
-        android:background="@drawable/round_button"
-        app:backgroundTint="#2088ca"
-        app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
-        app:layout_constraintEnd_toStartOf="@id/bookmarkButton"
-        app:layout_constraintStart_toEndOf="@id/callButton"
-        app:layout_constraintTop_toBottomOf="@id/layoutDialog" />
+
     <ImageButton
         android:id="@+id/bookmarkButton"
         android:contentDescription="bookmark_description"
@@ -99,7 +87,7 @@
         app:backgroundTint="#005caa"
         app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/placeButton"
+        app:layout_constraintStart_toEndOf="@id/callButton"
         app:layout_constraintTop_toBottomOf="@id/layoutDialog"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
