@@ -43,12 +43,13 @@
 
                             <TextView
                                 android:id="@+id/name_dialog"
+                                android:singleLine="true"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
                                 android:text="building name"
                                 android:textStyle="bold"
-                                android:textSize="20sp"
+                                android:textSize="18sp"
                                 android:gravity="center_vertical"
                                 android:paddingEnd="8dp"
                                 android:textAppearance="?attr/textAppearanceTitleMedium" />
@@ -60,7 +61,7 @@
                                 android:layout_weight="1"
 
                                 android:text="building alias"
-                                android:textSize="17sp"
+                                android:textSize="16sp"
                                 android:textColor="#264D8D"
                                 android:textAppearance="?attr/textAppearanceSubtitle2" />
                     </LinearLayout>
@@ -75,10 +76,11 @@
             </LinearLayout>
 
 
-        <com.google.android.gms.maps.MapView
+            <ImageView
             android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="600px"
+            android:layout_height="600px"
+            android:contentDescription="map_image_placeholder"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="40dp"
             android:scaleType="centerCrop"
