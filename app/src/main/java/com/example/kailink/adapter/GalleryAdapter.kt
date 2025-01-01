@@ -18,6 +18,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.kailink.BuildConfig
 import com.example.kailink.R
 import com.example.kailink.model.Gallery
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -27,7 +28,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class GalleryAdapter(private val items: List<Gallery>, private val mapView: MapView) :
+class GalleryAdapter(private val items: List<Gallery>) :
     RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>(), Filterable {
 
     private var filteredGalleryList = items.toMutableList()
@@ -73,19 +74,15 @@ class GalleryAdapter(private val items: List<Gallery>, private val mapView: MapV
         val galleryNumTextView = dialog.findViewById<TextView>(R.id.bnum_dialog)
         val galleryNameTextView = dialog.findViewById<TextView>(R.id.name_dialog)
         val galleryAliasTextView = dialog.findViewById<TextView>(R.id.alias_dialog)
-        val mapContainer = dialog.findViewById<ViewGroup>(R.id.mapView)
+        val mapView = dialog.findViewById<ImageView>(R.id.mapView)
 
-        if (mapView.parent != null) {
-            (mapView.parent as ViewGroup).removeView(mapView) // 기존 부모에서 제거
-        }
-        mapContainer.addView(mapView)
+        val staticMapUrl = generateStaticMapUrl(item.latitude, item.longitude, item.galleryName)
 
-        mapView.getMapAsync { googleMap ->
-            val position = LatLng(item.latitude, item.longitude)
-            googleMap.clear()
-            googleMap.addMarker(MarkerOptions().position(position).title(item.galleryName))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15f))
-        }
+        Glide.with(context)
+            .load(staticMapUrl)
+            .placeholder(R.drawable.ic_loading)
+            .error(R.drawable.ic_error)
+            .into(mapView)
 
         val resourceId = context.resources.getIdentifier(item.image, "drawable", context.packageName)
         Glide.with(context)
@@ -115,13 +112,12 @@ class GalleryAdapter(private val items: List<Gallery>, private val mapView: MapV
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setCancelable(false)
         dialog.show()
+    }
 
-        mapView.onResume()
-        dialog.setOnDismissListener {
-            mapView.onPause()
-            mapView.onStop()
-            mapView.onDestroy()
-        }
+    private fun generateStaticMapUrl(lat: Double, lng: Double, label: String): String {
+        val apiKey = BuildConfig.MAPS_API_KEY // API 키는 BuildConfig에 저장
+        return "https://maps.googleapis.com/maps/api/staticmap?" +
+                "center=$lat,$lng&zoom=17&size=600x600&markers=color:red%7Clabel:$label%7C$lat,$lng&key=$apiKey"
     }
 
     override fun getItemCount(): Int = filteredGalleryList.size
