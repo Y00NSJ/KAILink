@@ -8,11 +8,13 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.kailink.ui.home.HomeFragment"
+        android:elevation="8dp"
         android:label="마이페이지"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/navigation_contacts"
         android:name="com.example.kailink.ui.contacts.ContactsFragment"
+        android:elevation="8dp"
         android:label="연락처"
         tools:layout="@layout/fragment_contacts"
         />
@@ -20,6 +22,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.kailink.ui.gallery.GalleryFragment"
+        android:elevation="8dp"
         android:label="Gallery"
         tools:layout="@layout/fragment_gallery"
         />
@@ -27,6 +30,7 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.kailink.ui.chats.ChatsFragment"
+        android:elevation="8dp"
         android:label="넙죽이봇"
         tools:layout="@layout/fragment_chats" />
 </navigation>
