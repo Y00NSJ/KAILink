@@ -1,5 +1,5 @@
 
-# $\color{005caa}\colorbox{5ebfed}{KAILink}$
+# KAILink
 
 ---
 
